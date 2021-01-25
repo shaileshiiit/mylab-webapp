@@ -6,6 +6,11 @@ pipeline {
   // No valid tools specified
     maven 'maven'
     }
+    environment {
+        artifactId = readMavenPom().getArtifactId()
+        version = readMavenPom().getVersion()
+
+    }
 
     stages {
         stage ("Build") {
@@ -26,9 +31,9 @@ pipeline {
                 echo "This is publishing build artifcats to Nexus"
                 nexusArtifactUploader artifacts:
                 [[
-                    artifactId: 'VinayDevOpsLab', 
+                    artifactId: "${artifactId}" 
                     classifier: '', 
-                    file: 'target/VinayDevOpsLab-0.0.1.war', 
+                    file: "target/${artifactId}-${version}.war",
                     type: 'war']], 
 
                     credentialsId: 'Nexus', 
@@ -37,7 +42,7 @@ pipeline {
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'SNAPSHOT', 
-                    version: '0.0.1'
+                    version: "${versionId}"
             }
         }
     }
