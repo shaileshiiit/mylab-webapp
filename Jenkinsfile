@@ -30,7 +30,7 @@ pipeline {
         }
     stage ("Publish Artifacts to Nexus") {
             steps {
-                script {
+                
                 echo "This is publishing build artifcats to Nexus"
                 nexusArtifactUploader artifacts: [
                     [
@@ -47,7 +47,6 @@ pipeline {
                     protocol: 'http', 
                     repository: 'SNAPSHOT', 
                     version: "${version}"
-                }
             }
         }
     }
