@@ -34,7 +34,7 @@ pipeline {
                 echo "This is publishing build artifcats to Nexus"
                 nexusArtifactUploader artifacts: [
                     [
-                    artifactId: "${artifactId}" 
+                    artifactId: "${artifactId}", 
                     classifier: '', 
                     file: "target/${artifactId}-${version}.war",
                     type: 'war']
