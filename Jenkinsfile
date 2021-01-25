@@ -42,7 +42,7 @@ pipeline {
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'SNAPSHOT', 
-                    version: "${versionId}"
+                    version: "${version}"
             }
         }
     }
