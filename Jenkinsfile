@@ -31,7 +31,7 @@ pipeline {
                     file: 'target/VinayDevOpsLab-0.0.1.war', 
                     type: 'war']], 
 
-                    credentialsId: '74440630-6752-4906-bde1-70b840ba2253', 
+                    credentialsId: 'Nexus', 
                     groupId: 'com.vinaysdevopslab', 
                     nexusUrl: '172.20.10.73:8081', 
                     nexusVersion: 'nexus3', 
