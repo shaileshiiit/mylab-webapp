@@ -42,7 +42,7 @@ pipeline{
                         type: 'war']], 
                         credentialsId: 'Nexus', 
                         groupId: 'com.vinaysdevopslab', 
-                        nexusUrl: '172.20.10.140:8081', 
+                        nexusUrl: '172.20.10.73:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'SNAPSHOT', 
