@@ -49,8 +49,12 @@ pipeline{
                         version: "${version}"
 
                 }
-
             }
-           
+        //Stage4 : Ansible play book
+        stage ('Invoke playbook on the ansible controller'){
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'ansiblecontroller', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /opt/playbook/deploytotomcat.yaml -i /opt/playbook/hosts', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }   
        }  
     }
